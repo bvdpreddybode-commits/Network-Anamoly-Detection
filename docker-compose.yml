@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nids-dashboard:
+    build: .
+    container_name: nids_anomaly_detector
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    # To enable live host network interface sniffing on Linux hosts, uncomment network_mode:
+    # network_mode: "host"
+    # cap_add:
+    #   - NET_ADMIN
+    #   - NET_RAW
+    volumes:
+      - ./cbp_network_anomaly/data:/app/cbp_network_anomaly/data
+      - ./cbp_network_anomaly/results:/app/cbp_network_anomaly/results
