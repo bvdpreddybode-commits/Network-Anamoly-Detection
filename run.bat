@@ -1,5 +1,5 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 title Network Anomaly Detection System
 
 echo ========================================================
@@ -7,33 +7,52 @@ echo   Network Anomaly Detection System (NIDS) - Launcher
 echo ========================================================
 echo.
 
-:: Check for Python
-python --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [ERROR] Python is not installed or not in your PATH.
-    echo Please install Python 3.9+ from https://www.python.org/downloads/
+:: Find python executable
+set "PY_CMD="
+python --version >nul 2>&1 && set "PY_CMD=python"
+if not defined PY_CMD (
+    py -3 --version >nul 2>&1 && set "PY_CMD=py -3"
+)
+
+if not defined PY_CMD (
+    echo [ERROR] Python is not found on this system!
+    echo.
+    echo To fix this:
+    echo 1. Download Python from: https://www.python.org/downloads/
+    echo 2. Run the installer and MUST CHECK the box: "Add Python to PATH"
+    echo.
     pause
     exit /b 1
 )
 
-:: Navigate to project directory
+echo [*] Detected Python:
+%PY_CMD% --version
+
 cd /d "%~dp0cbp_network_anomaly"
 
-:: Setup virtual environment if not present
-if not exist "venv" (
-    echo [*] Setting up virtual environment in .\venv...
-    python -m venv venv
-    call venv\Scripts\activate.bat
-    echo [*] Installing dependencies from requirements.txt...
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-) else (
-    call venv\Scripts\activate.bat
+:: Create venv if needed
+if not exist "venv\Scripts\python.exe" (
+    echo [*] Setting up local environment in .\venv...
+    %PY_CMD% -m venv venv
 )
 
-echo.
-echo [*] Starting Streamlit Dashboard...
-echo [*] Opening at http://localhost:8501
-echo.
-streamlit run dashboard/app.py
+if exist "venv\Scripts\activate.bat" (
+    call "venv\Scripts\activate.bat"
+    echo [*] Installing/checking dependencies...
+    python -m pip install --upgrade pip --quiet
+    pip install -r requirements.txt
+    echo.
+    echo [*] Launching Dashboard at http://localhost:8501 ...
+    python -m streamlit run dashboard/app.py --server.port 8501
+) else (
+    echo [*] Installing requirements...
+    %PY_CMD% -m pip install -r requirements.txt
+    echo [*] Launching Dashboard at http://localhost:8501 ...
+    %PY_CMD% -m streamlit run dashboard/app.py --server.port 8501
+)
+
+if %errorlevel% neq 0 (
+    echo.
+    echo [ERROR] Application closed with code %errorlevel%.
+)
 pause
