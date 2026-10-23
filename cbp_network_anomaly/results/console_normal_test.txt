@@ -1,0 +1,4 @@
+$ python src/run_detector.py pcaps/normal_test.pcap
+[+] Parsed 16986 packets from pcaps/normal_test.pcap in 3.8 s
+[+] Running 7 detectors
+[+] 0 alert(s) raised in 0.03 s

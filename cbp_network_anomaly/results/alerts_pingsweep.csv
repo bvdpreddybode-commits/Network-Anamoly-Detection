@@ -1,0 +1,2 @@
+type,time,src,detail,severity
+Ping Sweep,1700000040.18,192.168.56.66,ICMP echo to 10 different hosts within 10.0s,MEDIUM

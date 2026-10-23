@@ -1,0 +1,209 @@
+{
+ "normal": {
+  "packets": 3396,
+  "duration": 120.2,
+  "alerts": 0
+ },
+ "normal_test": {
+  "packets": 16986,
+  "duration": 600.6,
+  "alerts": 0
+ },
+ "portscan": {
+  "packets": 5068,
+  "detected": true,
+  "types": [
+   "Port Scan"
+  ],
+  "latency": 0.08,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "pingsweep": {
+  "packets": 3550,
+  "detected": true,
+  "types": [
+   "Ping Sweep"
+  ],
+  "latency": 0.18,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "arpspoof": {
+  "packets": 3423,
+  "detected": true,
+  "types": [
+   "ARP Spoofing"
+  ],
+  "latency": 0.0,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "dnsenum": {
+  "packets": 3654,
+  "detected": true,
+  "types": [
+   "DNS Enumeration",
+   "DNS Zone Transfer"
+  ],
+  "latency": 1.45,
+  "alerts": 2,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "ftpbrute": {
+  "packets": 3698,
+  "detected": true,
+  "types": [
+   "FTP Brute Force"
+  ],
+  "latency": 0.3,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "synflood": {
+  "packets": 6416,
+  "detected": true,
+  "types": [
+   "SYN Flood"
+  ],
+  "latency": 0.1,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "roguedhcp": {
+  "packets": 3339,
+  "detected": true,
+  "types": [
+   "Rogue DHCP"
+  ],
+  "latency": 0.0,
+  "alerts": 1,
+  "false_alerts": 0,
+  "also_fired": []
+ },
+ "slowscan_rule": {
+  "packets": 4508,
+  "detected": false
+ },
+ "combined": {
+  "packets": 14289,
+  "alerts": 8,
+  "attacker_alerts": 8,
+  "types": [
+   "ARP Spoofing",
+   "DNS Enumeration",
+   "DNS Zone Transfer",
+   "FTP Brute Force",
+   "Ping Sweep",
+   "Port Scan",
+   "Rogue DHCP",
+   "SYN Flood"
+  ]
+ },
+ "ml": {
+  "normal_test_windows": 1446,
+  "normal_test_flagged": 36,
+  "portscan": {
+   "att_windows": 2,
+   "att_flagged": 2,
+   "benign_windows": 284,
+   "benign_flagged": 8
+  },
+  "pingsweep": {
+   "att_windows": 2,
+   "att_flagged": 2,
+   "benign_windows": 292,
+   "benign_flagged": 4
+  },
+  "arpspoof": {
+   "att_windows": 0,
+   "att_flagged": 0,
+   "benign_windows": 289,
+   "benign_flagged": 7
+  },
+  "dnsenum": {
+   "att_windows": 2,
+   "att_flagged": 0,
+   "benign_windows": 295,
+   "benign_flagged": 10
+  },
+  "ftpbrute": {
+   "att_windows": 2,
+   "att_flagged": 0,
+   "benign_windows": 292,
+   "benign_flagged": 4
+  },
+  "synflood": {
+   "att_windows": 3000,
+   "att_flagged": 0,
+   "benign_windows": 288,
+   "benign_flagged": 3
+  },
+  "roguedhcp": {
+   "att_windows": 2,
+   "att_flagged": 0,
+   "benign_windows": 290,
+   "benign_flagged": 5
+  },
+  "slowscan": {
+   "att_windows": 25,
+   "att_flagged": 0
+  }
+ },
+ "sensitivity": [
+  {
+   "threshold": 2,
+   "scan_detected": true,
+   "fp_on_normal": 10,
+   "slow_detected": true
+  },
+  {
+   "threshold": 3,
+   "scan_detected": true,
+   "fp_on_normal": 10,
+   "slow_detected": true
+  },
+  {
+   "threshold": 5,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  },
+  {
+   "threshold": 10,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  },
+  {
+   "threshold": 20,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  },
+  {
+   "threshold": 50,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  },
+  {
+   "threshold": 100,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  },
+  {
+   "threshold": 300,
+   "scan_detected": true,
+   "fp_on_normal": 0,
+   "slow_detected": false
+  }
+ ]
+}

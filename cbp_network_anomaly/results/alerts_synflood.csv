@@ -1,0 +1,2 @@
+type,time,src,detail,severity
+SYN Flood,1700000040.097993,100 sources,"100 SYNs/s to 192.168.56.10:80 from 100 sources, handshakes not completed",CRITICAL

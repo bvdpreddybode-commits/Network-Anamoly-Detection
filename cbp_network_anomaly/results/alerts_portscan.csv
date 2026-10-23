@@ -1,0 +1,2 @@
+type,time,src,detail,severity
+Port Scan,1700000040.075999,192.168.56.66,"20 distinct ports on 192.168.56.10 within 5.0s (SYN, no handshake)",HIGH

@@ -1,0 +1,2 @@
+type,time,src,detail,severity
+FTP Brute Force,1700000040.296,192.168.56.66,5 '530 Login incorrect' replies within 60s,HIGH

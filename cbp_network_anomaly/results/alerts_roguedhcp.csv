@@ -1,0 +1,2 @@
+type,time,src,detail,severity
+Rogue DHCP,1700000040.0,08:00:27:ee:00:66,DHCP OFFER from 192.168.56.66 (legit server MAC 08:00:27:aa:00:01),CRITICAL

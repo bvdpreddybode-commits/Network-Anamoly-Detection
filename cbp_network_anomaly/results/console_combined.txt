@@ -1,0 +1,12 @@
+$ python src/run_detector.py pcaps/combined.pcap
+[+] Parsed 14289 packets from pcaps/combined.pcap in 2.6 s
+[+] Running 7 detectors
+[HIGH    ] t=  20.05s Port Scan         src=192.168.56.66     | 20 distinct ports on 192.168.56.10 within 5.0s (SYN, no handshake)
+[MEDIUM  ] t=  60.15s Ping Sweep        src=192.168.56.66     | ICMP echo to 10 different hosts within 10.0s
+[CRITICAL] t=  99.97s ARP Spoofing      src=08:00:27:ee:00:66 | IP 192.168.56.1 changed MAC 08:00:27:aa:00:01 -> 08:00:27:ee:00:66
+[MEDIUM  ] t= 141.42s DNS Enumeration   src=192.168.56.66     | 30 unique names queried within 10.0s
+[HIGH    ] t= 142.97s DNS Zone Transfer src=192.168.56.66     | AXFR request (QTYPE 252) over TCP/53
+[HIGH    ] t= 180.27s FTP Brute Force   src=192.168.56.66     | 5 '530 Login incorrect' replies within 60s
+[CRITICAL] t= 220.07s SYN Flood         src=100 sources       | 100 SYNs/s to 192.168.56.10:80 from 100 sources, handshakes not completed
+[CRITICAL] t= 259.97s Rogue DHCP        src=08:00:27:ee:00:66 | DHCP OFFER from 192.168.56.66 (legit server MAC 08:00:27:aa:00:01)
+[+] 8 alert(s) raised in 0.41 s

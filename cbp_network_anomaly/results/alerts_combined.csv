@@ -1,0 +1,9 @@
+type,time,src,detail,severity
+Port Scan,1700000020.075999,192.168.56.66,"20 distinct ports on 192.168.56.10 within 5.0s (SYN, no handshake)",HIGH
+Ping Sweep,1700000060.18,192.168.56.66,ICMP echo to 10 different hosts within 10.0s,MEDIUM
+ARP Spoofing,1700000100.0,08:00:27:ee:00:66,IP 192.168.56.1 changed MAC 08:00:27:aa:00:01 -> 08:00:27:ee:00:66,CRITICAL
+DNS Enumeration,1700000141.449999,192.168.56.66,30 unique names queried within 10.0s,MEDIUM
+DNS Zone Transfer,1700000142.999997,192.168.56.66,AXFR request (QTYPE 252) over TCP/53,HIGH
+FTP Brute Force,1700000180.296,192.168.56.66,5 '530 Login incorrect' replies within 60s,HIGH
+SYN Flood,1700000220.096993,100 sources,"100 SYNs/s to 192.168.56.10:80 from 100 sources, handshakes not completed",CRITICAL
+Rogue DHCP,1700000260.0,08:00:27:ee:00:66,DHCP OFFER from 192.168.56.66 (legit server MAC 08:00:27:aa:00:01),CRITICAL
